@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // @mui
-import { Button, Stack, IconButton, InputAdornment, TextField } from '@mui/material';
+import { Stack, IconButton, InputAdornment, TextField } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // components
 import Swal from 'sweetalert2';
 import config from '../../../config';
 import Iconify from '../../../components/iconify';
-import { cachePut, request } from '../../../utils/formatTime';
+import { cachePut, publicRequest } from '../../../utils/formatTime';
 // ----------------------------------------------------------------------
 
 export default function LoginForm() {
@@ -34,7 +34,7 @@ export default function LoginForm() {
       data: JSON.stringify(payload),
     };
 
-    const login = await request(req);
+    const login = await publicRequest(req);
     setPayload({ ...payload, loading: false });
     if(login.status === 200){
       // console.log(login.data.data)
@@ -89,9 +89,9 @@ export default function LoginForm() {
         </Link> */}
       </Stack>
 
-      <Button fullWidth size="large" type="button" variant="contained" onClick={handleClick} loading={payload.loading}>
+      <LoadingButton fullWidth size="large" type="button" variant="contained" onClick={handleClick} loading={payload.loading}>
         Login
-      </Button>
+      </LoadingButton>
     </>
   );
 }
