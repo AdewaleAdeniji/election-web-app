@@ -19,7 +19,8 @@ export default function LoginForm() {
   });
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleClick = async () => {
+  const handleClick = async (e) => {
+    e.preventDefault();
     if (payload.email.length === 0 || payload.password.length === 0)
       return inform(false, 'Email or password is required');
   
@@ -35,7 +36,7 @@ export default function LoginForm() {
     const login = await request(req);
     setPayload({ ...payload, loading: false });
     if(login.status === 200){
-      console.log(login.data.data)
+      // console.log(login.data.data)
       cachePut(config.USER_STORAGE_KEY, JSON.stringify(login.data.data))
       inform("success","Login Successful");
       navigate('/dashboard', { replace: true });

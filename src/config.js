@@ -1,6 +1,5 @@
 import requests from "./utils/request";
 
-console.log(process.env)
 const config = {
     BASE_URL: process.env.REACT_APP_BASE_URL,// "https://lauvote.herokuapp.com", // 
     USER_STORAGE_KEY: "dosdjo",
