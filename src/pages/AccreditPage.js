@@ -266,7 +266,6 @@ export default function PublicAccredit() {
             <LoadingButton
               fullWidth
               size="large"
-              type="submit"
               variant="contained"
               onClick={handleSubmit}
               loading={loading}
