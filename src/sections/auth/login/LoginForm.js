@@ -20,6 +20,7 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClick = async (e) => {
+    console.log('handle click called');
     e.preventDefault();
     if (payload.email.length === 0 || payload.password.length === 0)
       return inform(false, 'Email or password is required');
@@ -88,7 +89,7 @@ export default function LoginForm() {
         </Link> */}
       </Stack>
 
-      <LoadingButton fullWidth size="large" variant="contained" onClick={handleClick} loading={payload.loading}>
+      <LoadingButton fullWidth size="large" type="button" variant="contained" onClick={handleClick} loading={payload.loading}>
         Login
       </LoadingButton>
     </>
