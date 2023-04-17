@@ -192,6 +192,7 @@ export default function PublicAccredit() {
     } catch (err) {
       console.log(err);
       toast.dismiss();
+      setLoading(false);
       toast.error('Email could not be validated');
     }
     return false;

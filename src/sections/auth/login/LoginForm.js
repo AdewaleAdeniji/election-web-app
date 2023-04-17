@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // @mui
-import { Stack, IconButton, InputAdornment, TextField } from '@mui/material';
+import { Button, Stack, IconButton, InputAdornment, TextField } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // components
 import Swal from 'sweetalert2';
@@ -89,9 +89,9 @@ export default function LoginForm() {
         </Link> */}
       </Stack>
 
-      <LoadingButton fullWidth size="large" type="button" variant="contained" onClick={handleClick} loading={payload.loading}>
+      <Button fullWidth size="large" type="button" variant="contained" onClick={handleClick} loading={payload.loading}>
         Login
-      </LoadingButton>
+      </Button>
     </>
   );
 }

@@ -39,6 +39,15 @@ export function request(config){
     },
   })
 }
+export function publicRequest(config){
+  return axios.request({
+    ...config,
+    url: c.BASE_URL+config.path,
+    headers: { 
+      'Content-Type': 'application/json',
+    },
+  })
+}
 export function fToNow(date) {
   return date
     ? formatDistanceToNow(new Date(date), {

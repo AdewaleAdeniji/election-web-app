@@ -1,4 +1,4 @@
-import { request } from './formatTime';
+import { request, publicRequest } from './formatTime';
 
 const requests = {
   async getProfile() {
@@ -102,7 +102,7 @@ const requests = {
       method: 'get',
       path: `/poll/tip/${id}`,
     };
-    const faculty = await request(req);
+    const faculty = await publicRequest(req);
     return { status: faculty.status === 200, data: faculty?.data?.data };
   },
   async updateElection(body) {
@@ -153,7 +153,7 @@ const requests = {
         email
       }
     };
-    const res = await request(req);
+    const res = await publicRequest(req);
     return { status: res.status === 200, data: res?.data?.message };
   },
   async tipOtp(otp){
@@ -161,7 +161,7 @@ const requests = {
       method: 'get',
       path: `/otp/tip/${otp}`,
     };
-    const res = await request(req);
+    const res = await publicRequest(req);
     return { status: res.status === 200, data: res?.data?.data };
   },
   async accreditUser(body){
@@ -170,7 +170,7 @@ const requests = {
       path: `/voters/accredit`,
       data: body
     };
-    const res = await request(req);
+    const res = await publicRequest(req);
     return { status: res.status === 200, data: res?.data };
   },
   async getVoterPolls(){
@@ -187,7 +187,7 @@ const requests = {
       method: 'get',
       path: `/results/poll/${id}`,
     };
-    const res = await request(req);
+    const res = await publicRequest(req);
     return { status: res.status === 200, data: res?.data };
   },
   async vote(body){
